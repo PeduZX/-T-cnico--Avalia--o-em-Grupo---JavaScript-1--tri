@@ -2,6 +2,7 @@
 let chavesUnicas = [];
 let todosProjetos = [];
 
+// Pega os elementos do html
 function cadastrarProjeto() {
   let nomeProjeto = document.getElementById("nomeProjeto").value;
   let descricaoProjeto = document.getElementById("descricaoProjeto").value;
@@ -12,9 +13,16 @@ function cadastrarProjeto() {
   let dataTermino = document.getElementById("dataTermino").value;
   let arquivoProjeto = document.getElementById("arquivoProjeto").files[0];
 
-  // Validação
-  if (!nomeProjeto || !descricaoProjeto || !chaveProjeto || !gerenteProjeto ||
-      !statusProjeto || !dataInicio || !dataTermino) {
+  // Validação para garantir que todos os campos estão preenchidos
+  if (
+    !nomeProjeto ||
+    !descricaoProjeto ||
+    !chaveProjeto ||
+    !gerenteProjeto ||
+    !statusProjeto ||
+    !dataInicio ||
+    !dataTermino
+  ) {
     alert("Por favor, preencha todos os campos obrigatórios.");
     return;
   }
@@ -28,7 +36,14 @@ function cadastrarProjeto() {
   chavesUnicas.push(chaveProjeto);
   alert(`Essa é sua chave única. Lembre dela: ${chaveProjeto}`);
 
-  let nomeArquivo = arquivoProjeto ? arquivoProjeto.name : "Nenhum arquivo enviado";
+  let nomeArquivo = "";
+if (arquivoProjeto) {
+  nomeArquivo = arquivoProjeto.name; // esse "NAME" ele cha,a direto o nome do arquivo
+} else {
+  alert("Nenhum arquivo enviado");
+  alert("Por favor, preencha todos os campos obrigatórios.");
+  return;
+}
 
   let projeto = {
     nomeProjeto,
@@ -37,7 +52,7 @@ function cadastrarProjeto() {
     statusProjeto,
     dataInicio,
     dataTermino,
-    nomeArquivo
+    nomeArquivo,
   };
 
   todosProjetos.push(projeto);
@@ -46,26 +61,29 @@ function cadastrarProjeto() {
   mostrarTodosProjetos();
 
   // Resetar o formulário
-  document.getElementById("nomeProjeto").value = '';
-  document.getElementById("descricaoProjeto").value = '';
-  document.getElementById("chaveProjeto").value = '';
-  document.getElementById("gerenteProjeto").value = '';
-  document.getElementById("statusProjeto").value = 'Em Andamento';
-  document.getElementById("dataInicio").value = '';
-  document.getElementById("dataTermino").value = '';
-  document.getElementById("arquivoProjeto").value = '';
+  document.getElementById("nomeProjeto").value = "";
+  document.getElementById("descricaoProjeto").value = "";
+  document.getElementById("chaveProjeto").value = "";
+  document.getElementById("gerenteProjeto").value = "";
+  document.getElementById("statusProjeto").value = "Em Andamento";
+  document.getElementById("dataInicio").value = "";
+  document.getElementById("dataTermino").value = "";
+  document.getElementById("arquivoProjeto").value = "";
 }
 
 function mostrarTodosProjetos() {
   const lista = document.querySelector(".lista-projetos");
   lista.innerHTML = ""; // limpa tudo
 
-  todosProjetos.forEach((projeto, index) => {
+  //vai criar uma div para cada projeto adicionando no html com tags p dentro
+  todosProjetos.forEach((projeto, i) => {
     const divProjeto = document.createElement("div");
     divProjeto.classList.add("projeto");
 
+    // mensagem que sera exibida
     divProjeto.innerHTML = `
-      <h3>Projeto ${index + 1}</h3>
+    <br>
+      <h3>Projeto ${i + 1}</h3>
       <p><strong>Nome:</strong> ${projeto.nomeProjeto}</p>
       <p><strong>Descrição:</strong> ${projeto.descricaoProjeto}</p>
       <p><strong>Gerente:</strong> ${projeto.gerenteProjeto}</p>
@@ -76,6 +94,11 @@ function mostrarTodosProjetos() {
       <hr>
     `;
 
-    lista.appendChild(divProjeto);
+    lista.appendChild(divProjeto); // adiciona as tag P dentro da div do html
   });
+}
+function ExcluirProjeto() {
+  todosProjetos.shift(); // remove o primeiro item do array
+  chavesUnicas.shift();
+  mostrarTodosProjetos();
 }

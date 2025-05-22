@@ -12,8 +12,8 @@ body {
 
 header {
     background-color: #030952;
-    color: antiquewhite;
-    box-shadow: 2px 2px 2px #ccc;
+    color: #faebd7;
+    box-shadow: 2px 2px 2px #cccccc;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -51,11 +51,10 @@ form {
   display: flex;
   flex-direction: column;
 }
-
 label {
   margin-bottom: 5px;
   font-weight: bold;
-  color: rgba(0, 0, 0, 0.7);
+  color: #000000b3;
 }
 
 input,

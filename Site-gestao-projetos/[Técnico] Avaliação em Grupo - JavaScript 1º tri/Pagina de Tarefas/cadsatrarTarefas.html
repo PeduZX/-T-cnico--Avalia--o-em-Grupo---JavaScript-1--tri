@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cadastrar Tarefas 📑</title>
-  <link rel="stylesheet" href="/[Técnico] Avaliação em Grupo - JavaScript 1º tri/Pagina de Tarefas/style.css" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
@@ -20,6 +20,10 @@
         <div class="campo">
           <label for="nomeProjeto">Coloque suas tarefas a fazer:</label>
           <input type="text" id="recebe-tarefa" placeholder="Tarefas a Fazer" required />
+        <div class="campo">
+          <label for="nomeProjeto">Essa tarefa é de qual Projeto:</label>
+          <input type="text" id="numero-tarefa" placeholder="De qual projeto" required />
+          <h2 id="h2-tarefas"></h2>
           <ul id="lista-tarefas"></ul>
 
         </div>
@@ -29,7 +33,10 @@
             Enviar
           </button>
           <button>
-            <a href="/[Técnico] Avaliação em Grupo - JavaScript 1º tri/HOME PAGE/index.html">Voltar</a>
+            <a href="/Site-gestao-projetos/[Técnico] Avaliação em Grupo - JavaScript 1º tri/HOME PAGE/index.html">Voltar</a>
+          </button>
+          <button type="button" class="btn-limpar" onclick="limparTarefas()">
+            Limpar
           </button>
         </div>
       </form>
