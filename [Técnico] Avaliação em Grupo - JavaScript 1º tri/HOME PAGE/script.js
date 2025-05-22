@@ -62,3 +62,4 @@ function verificarChave(chaveProjeto) {
     return true;
   }
 }
+// Verificar se a chave já foi cadastrada
