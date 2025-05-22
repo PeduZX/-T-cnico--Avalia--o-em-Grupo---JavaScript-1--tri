@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HOME 🏠</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <img src="logo.png" alt="Logo do site">
+    <h1>Cadastro de Projeto</h1>
+  </header>
+
+
+  <main>
+    <div class="container">
+  <form onsubmit="cadastrarProjeto(); return false;">
+    <div class="campo">
+      <label for="nomeProjeto">Nome do Projeto</label>
+      <input type="text" id="nomeProjeto" placeholder="Digite o nome do projeto" required>
+    </div>
+
+    <div class="campo">
+      <label for="descricaoProjeto">Descrição do Projeto</label>
+      <input type="text" id="descricaoProjeto" placeholder="Digite a descrição do projeto" required>
+    </div>
+
+    <div class="campo">
+      <label for="chaveProjeto">Chave</label>
+      <input type="text" id="chaveProjeto" placeholder="Atribua uma chave" required>
+    </div>
+
+    <div class="campo">
+      <label for="gerenteProjeto">Gerente do Projeto</label>
+      <input type="text" id="gerenteProjeto" placeholder="Nome do gerente" required>
+    </div>
+
+    <div class="campo">
+      <label for="statusProjeto">Status do Projeto</label>
+      <select id="statusProjeto" required>
+        <option>Em Andamento</option>
+        <option>Pronto</option>
+        <option>Finalizado</option>
+      </select>
+    </div>
+
+    <div class="campo">
+      <label for="dataInicio">Data de Início</label>
+      <input type="date" id="dataInicio" required>
+    </div>
+
+    <div class="campo">
+      <label for="dataTermino">Data de Término</label>
+      <input type="date" id="dataTermino" required>
+    </div>
+
+    <div class="campo">
+      <label for="arquivoProjeto">Envie seu trabalho</label>
+      <input type="file" id="arquivoProjeto">
+    </div>
+    <div id="botoes">
+      <button type="button" class="btn-enviar" onclick="cadastrarProjeto()">Enviar</button>
+      <button><a href="cadastro.html">Voltar</a></button>
+    </div>
+  </form>
+  </div>
+  </main>
+  <footer>
+    <p>&copy;2025 Cadastro</p>
+    <p>Endereço: R.cadastre.projetos 12 - centro - Fone +55 51 99899 17 65</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+
+</html>
