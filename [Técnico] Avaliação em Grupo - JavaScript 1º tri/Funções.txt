@@ -1,1 +1,0 @@
-nome, chave , gerente do projeto, descrição/escopo, data inicio e data termino
